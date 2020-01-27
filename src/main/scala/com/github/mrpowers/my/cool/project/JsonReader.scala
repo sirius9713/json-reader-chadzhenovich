@@ -24,15 +24,7 @@ object JsonReader extends App {
 
   val filename = args (0)
 
-//  val js = sc.textFile(filename)
-//    .map(s => parse(s).extract[Winemag])
-//      .collect()
-
   val js = sc.textFile(filename)
     .map(s => parse(s).extract[Winemag])
-    .collect()
-  println("before")
-  println(js.toList mkString "\n")
-  println("after")
-//  val js = parse(json).extract[Winemag]
+    .foreach(println)
 }
